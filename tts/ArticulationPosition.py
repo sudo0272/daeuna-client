@@ -11,3 +11,4 @@ class ArticulationPostion(Enum):
     VELAR_CONSONANTS = ('ㅇ', 'ㄱ', 'ㄲ', 'ㅋ')
     GLOTTAL = 4
     GLOTTAL_CONSONANTS = ('ㅎ')
+    INVALID_LETTER = 7

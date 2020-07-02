@@ -15,4 +15,4 @@ class ArticulationMethod(Enum):
     FRICATIVE_TENSE_CONSONANTS = ('ㅆ')
     LIQUID = 6
     LIQUID_CONSONANTS = ('ㄹ')
-    
+    INVALID_LETTER = 7
