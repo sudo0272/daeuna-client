@@ -1,11 +1,12 @@
 from tts.ArticulationMethod import ArticulationMethod
 from tts.ArticulationPosition import ArticulationPostion
 from tts.BottomConsonantRepresentativeSound import BottomConsonantRepresentativeSound
+from tts.LetterType import LetterType
 
 NO_SOUND = ''
 
 class Consonant:
-    def __init__(self, letter: str):
+    def __init__(self, letter: str, letter_type: LetterType):
         self.letter = letter
 
         # Set plain, tense and aspirated
@@ -83,8 +84,32 @@ class Consonant:
         else:
             self.articulation_position = ArticulationPostion.INVALID_LETTER  # All consonants except Bottom Consonants in korean are evinced
         
-        
+        # Determine the representative sound of the letter only if the letter is a bottom letter
+        if letter_type == LetterType.JONGSUNG:
+            if letter in BottomConsonantRepresentativeSound.GIYUK_CONSONANTS:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.GIYUK
             
+            elif letter in BottomConsonantRepresentativeSound.NIEUN_CONSONANTS:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.NIEUN
+            
+            elif letter in BottomConsonantRepresentativeSound.DIGUT_CONSONANTS:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.DIGUT
+            
+            elif letter in BottomConsonantRepresentativeSound.RIEUL_CONSONANTS:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.RIEUL
+
+            elif letter in BottomConsonantRepresentativeSound.MIEUM_CONSONANTS:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.MIEUM
+
+            elif letter in BottomConsonantRepresentativeSound.IEUNG_CONSONANTS:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.IEUNG
+
+            else:
+                self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.INVALID_LETTER
+
+        else:
+            self.bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.NOT_BOTTOM_CONSONANT
+
     def to_plain(self):
         return self.plain
     
@@ -99,3 +124,6 @@ class Consonant:
     
     def get_articulation_position(self):
         return self.articulation_position
+
+    def get_bottom_consonant_representative_sound(self):
+        return self.bottom_consonant_representative_sound
