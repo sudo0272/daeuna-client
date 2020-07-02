@@ -39,25 +39,25 @@ class Consonant:
             self.aspirated = NO_SOUND
         
         # Determine articulation method
-        if letter in ('ㅁ', 'ㄴ', 'ㅇ'):
+        if letter in ArticulationMethod.NASAL_CONSONANTS:
             self.articulation_method = ArticulationMethod.NASAL
 
-        elif letter in ('ㅂ', 'ㄷ', 'ㅈ', 'ㄱ'):
+        elif letter in ArticulationMethod.AFFRICATE_PLAIN_CONSONANTS:
             self.articulation_method = ArticulationMethod.AFFRICATE_PLAIN
         
-        elif letter in ('ㅃ', 'ㄸ', 'ㅉ', 'ㄲ'):
+        elif letter in ArticulationMethod.AFFRICATE_TENSE_CONSONANTS:
             self.articulation_method = ArticulationMethod.AFFRICATE_TENSE
         
-        elif letter in ('ㅍ', 'ㅌ', 'ㅊ', 'ㅋ'):
+        elif letter in ArticulationMethod.AFFRICATE_ASPIRATED_CONSONANTS:
             self.articulation_method = ArticulationMethod.AFFRICATE_ASPIRATED
         
-        elif letter in ('ㅅ', 'ㅎ'):
+        elif letter in ArticulationMethod.FRICATIVE_PLAIN_CONSONANTS:
             self.articulation_method = ArticulationMethod.FRICATIVE_PLAIN
         
-        elif letter in ('ㅆ'):
+        elif letter in ArticulationMethod.FRICATIVE_TENSE_CONSONANTS:
             self.articulation_method = ArticulationMethod.FRICATIVE_TENSE
         
-        elif letter in ('ㄹ'):
+        elif letter in ArticulationMethod.LIQUID_CONSONANTS:
             self.articulation_method = ArticulationMethod.LIQUID
         
         else:
