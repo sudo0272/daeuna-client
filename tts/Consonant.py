@@ -1,5 +1,6 @@
 from tts.ArticulationMethod import ArticulationMethod
 from tts.ArticulationPosition import ArticulationPostion
+from tts.BottomConsonantRepresentativeSound import BottomConsonantRepresentativeSound
 
 NO_SOUND = ''
 
@@ -61,7 +62,7 @@ class Consonant:
             self.articulation_method = ArticulationMethod.LIQUID
         
         else:
-            pass  # All of consonants except Bottom Consonants in korean are evinced
+            self.articulation_method = ArticulationMethod.INVALID_LETTER  # All of consonants except Bottom Consonants in korean are evinced
 
         # Determine aspiration position
         if letter in ArticulationPostion.BILABIAL_CONSONANTS:
@@ -80,7 +81,7 @@ class Consonant:
             self.articulation_position = ArticulationPostion.GLOTTAL
         
         else:
-            pass  # All consonants except Bottom Consonants in korean are evinced
+            self.articulation_position = ArticulationPostion.INVALID_LETTER  # All consonants except Bottom Consonants in korean are evinced
         
         
             
