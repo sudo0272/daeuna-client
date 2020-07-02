@@ -94,4 +94,8 @@ class Consonant:
     def to_aspirated(self):
             return self.aspirated
     
+    def get_articulation_method(self):
+        return self.articulation_method
     
+    def get_articulation_position(self):
+        return self.articulation_position
