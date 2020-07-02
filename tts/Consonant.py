@@ -64,19 +64,19 @@ class Consonant:
             pass  # All of consonants except Bottom Consonants in korean are evinced
 
         # Determine aspiration position
-        if letter in ('ㅁ', 'ㅂ', 'ㅃ', 'ㅍ'):
+        if letter in ArticulationPostion.BILABIAL_CONSONANTS:
             self.articulation_position = ArticulationPostion.BILABIAL
         
-        elif letter in ('ㄴ', 'ㄷ', 'ㄸ', 'ㅌ', 'ㅅ', 'ㅆ', 'ㄹ'):
+        elif letter in ArticulationPostion.ALVEOLAR_CONSONANTS:
             self.articulation_position = ArticulationPostion.ALVEOLAR
         
-        elif letter in ('ㅈ', 'ㅉ', 'ㅊ'):
+        elif letter in ArticulationPostion.PALATAL_CONSONANTS:
             self.articulation_position = ArticulationPostion.PALATAL
         
-        elif letter in ('ㅇ', 'ㄱ', 'ㄲ', 'ㅋ'):
+        elif letter in ArticulationPostion.VELAR_CONSONANTS:
             self.articulation_position = ArticulationPostion.VELAR
         
-        elif letter in ('ㅎ'):
+        elif letter in ArticulationPostion.GLOTTAL_CONSONANTS:
             self.articulation_position = ArticulationPostion.GLOTTAL
         
         else:
