@@ -19,7 +19,7 @@ class Hangul:
     class NotJongsungError(Exception):
         pass
 
-    def __init__(self, letter: str):
+    def __init__(self, letter: str, is_first_articulation: bool):
         self.__letter = letter
 
         base_code = ord(letter) - Hangul.UNICODE_START
@@ -33,6 +33,8 @@ class Hangul:
             self.JUNGSUNG[self.__jungsung_index],
             self.JONGSUNG[self.__jongsung_index]
         ]
+
+        self.__is_first_articulation = is_first_articulation
     
     def is_chosung(self, letter):
         return letter in self.CHOSUNG
@@ -95,3 +97,6 @@ class Hangul:
         
         else:
             raise self.NotJongsungError(f'''Letter '{jongsung}' is not a Jungsung character''')
+
+    def is_first_articulation(self):
+        return self.__is_first_articulation
