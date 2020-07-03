@@ -19,11 +19,11 @@ class Hangul:
         self.__jungsung_index = temp // Hangul.NUMBER_OF_JONGSUNG
         self.__jongsung_index = temp - (self.__jungsung_index * Hangul.NUMBER_OF_JONGSUNG)
 
-        self.__splitted = (
+        self.__splitted = [
             self.CHOSUNG[self.__chosung_index],
             self.JUNGSUNG[self.__jungsung_index],
             self.JONGSUNG[self.__jongsung_index]
-        )
+        ]
 
     def split(self):
         return self.__splitted
