@@ -1,12 +1,12 @@
 from tts.ArticulationMethod import ArticulationMethod
 from tts.ArticulationPosition import ArticulationPostion
 from tts.BatchimRepresentativeSound import BatchimRepresentativeSound
-from tts.LetterType import LetterType
+from tts.HangulType import HangulType
 
 NO_SOUND = ''
 
 class Consonant:
-    def __init__(self, letter: str, letter_type: LetterType):
+    def __init__(self, letter: str, letter_type: HangulType):
         self.__letter = letter
         self.__letter_type = letter_type
 
@@ -96,7 +96,7 @@ class Consonant:
             self.__articulation_position = ArticulationPostion.INVALID_LETTER  # All consonants except Bottom Consonants in korean are evinced
         
         # Determine the representative sound of the letter only if the letter is a bottom letter
-        if self.__letter_type == LetterType.JONGSUNG:
+        if self.__letter_type == HangulType.JONGSUNG:
             if self.__letter in BatchimRepresentativeSound.GIYUK_CONSONANTS:
                 self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.GIYUK
             
