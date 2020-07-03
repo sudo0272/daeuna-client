@@ -1,6 +1,4 @@
-from enum import Enum
-
-class BottomConsonantRepresentativeSound(Enum):
+class BottomConsonantRepresentativeSound:
     GIYUK = 0
     GIYUK_CONSONANTS = ('ㄱ', 'ㄲ', 'ㅋ', 'ㄳ', 'ㄺ')
     NIEUN = 1

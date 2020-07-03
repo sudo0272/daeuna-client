@@ -1,6 +1,4 @@
-from enum import Enum
-
-class ArticulationMethod(Enum):
+class ArticulationMethod:
     PLOSIVE_PLAIN = 0
     PLOSIVE_PLAIN_CONSONANTS = ('ㅂ', 'ㄷ', 'ㄱ')
     PLOSIVE_TENSE = 1

@@ -1,6 +1,4 @@
-from enum import Enum
-
-class ArticulationPostion(Enum):
+class ArticulationPostion:
     BILABIAL = 0
     BILABIAL_CONSONANTS = ('ㅁ', 'ㅂ', 'ㅃ', 'ㅍ')
     ALVEOLAR = 1
