@@ -33,3 +33,5 @@ class Pronunciation:
                 self.__letters[letter_index].set_jungsung('ㅣ')
 
             # TODO: 표준 발음법 제5항 다만 4
+
+            # TODO: 표준 발음법 제6항
