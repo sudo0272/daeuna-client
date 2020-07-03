@@ -10,6 +10,15 @@ class Hangul:
     JUNGSUNG_INDEX = 1
     JONGSUNG_INDEX = 2
 
+    class NotChosungError(Exception):
+        pass
+    
+    class NotJungsungError(Exception):
+        pass
+
+    class NotJongsungError(Exception):
+        pass
+
     def __init__(self, letter: str):
         self.__letter = letter
 
@@ -24,6 +33,45 @@ class Hangul:
             self.JUNGSUNG[self.__jungsung_index],
             self.JONGSUNG[self.__jongsung_index]
         ]
+    
+    def is_chosung(self, letter):
+        return letter in self.CHOSUNG
+    
+    def is_jungsung(self, letter):
+        return letter in self.JUNGSUNG
+    
+    def is_jongsung(self, letter):
+        return letter in self.JONGSUNG
 
     def split(self):
         return self.__splitted
+
+    def get_chosung(self):
+        return self.__splitted[self.CHOSUNG_INDEX]
+    
+    def set_chosung(self, chosung):
+        if len(chosung) == 1 and self.is_chosung(chosung):
+            self.__splitted[self.CHOSUNG_INDEX] = chosung
+        
+        else:
+            raise self.NotChosungError(f'''Letter '{chosung}' is not a Chosung character''')
+    
+    def get_jungsung(self):
+        return self.__splitted[self.JUNGSUNG_INDEX]
+
+    def set_jungsung(self, jungsung):
+        if len(jungsung) == 1 and self.is_jungsung(jungsung):
+            self.__splitted[self.JUNGSUNG_INDEX] = jungsung
+        
+        else:
+            raise self.NotJungsungError(f'''Letter '{jungsung}' is not a Jungsung character''')
+
+    def get_jongsung(self):
+        return self.__splitted[self.JONGSUNG_INDEX]
+    
+    def set_jongsung(self, jongsung):
+        if len(jongsung) == 1 and self.is_jongsung(jongsung):
+            self.__splitted[self.JONGSUNG_INDEX] = jongsung
+        
+        else:
+            raise self.NotJongsungError(f'''Letter '{jongsung}' is not a Jungsung character''')
