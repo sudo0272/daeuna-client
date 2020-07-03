@@ -41,29 +41,39 @@ class Consonant:
             self.aspirated = NO_SOUND
         
         # Determine articulation method
-        if letter in ArticulationMethod.NASAL_CONSONANTS:
-            self.articulation_method = ArticulationMethod.NASAL
+        if letter in ArticulationMethod.PLOSIVE_PLAIN_CONSONANTS:
+            self.articulation_method = ArticulationMethod.PLOSIVE_PLAIN
+
+        elif letter in ArticulationMethod.PLOSIVE_TENSE_CONSONANTS:
+            self.articulation_method = ArticulationMethod.PLOSIVE_TENSE
+
+        elif letter in ArticulationMethod.PLOSIVE_ASPIRATED_CONSONANTS:
+            self.articulation_method = ArticulationMethod.PLOSIVE_ASPIRATED
 
         elif letter in ArticulationMethod.AFFRICATE_PLAIN_CONSONANTS:
             self.articulation_method = ArticulationMethod.AFFRICATE_PLAIN
-        
+
         elif letter in ArticulationMethod.AFFRICATE_TENSE_CONSONANTS:
             self.articulation_method = ArticulationMethod.AFFRICATE_TENSE
-        
+
         elif letter in ArticulationMethod.AFFRICATE_ASPIRATED_CONSONANTS:
             self.articulation_method = ArticulationMethod.AFFRICATE_ASPIRATED
-        
+
         elif letter in ArticulationMethod.FRICATIVE_PLAIN_CONSONANTS:
             self.articulation_method = ArticulationMethod.FRICATIVE_PLAIN
-        
+
         elif letter in ArticulationMethod.FRICATIVE_TENSE_CONSONANTS:
             self.articulation_method = ArticulationMethod.FRICATIVE_TENSE
-        
+
+        elif letter in ArticulationMethod.NASAL_CONSONANTS:
+            self.articulation_method = ArticulationMethod.NASAL
+
         elif letter in ArticulationMethod.LIQUID_CONSONANTS:
             self.articulation_method = ArticulationMethod.LIQUID
-        
+
         else:
-            self.articulation_method = ArticulationMethod.INVALID_LETTER  # All of consonants except Bottom Consonants in korean are evinced
+            self.articulation_method = ArticulationMethod.INVALID_LETTER
+
 
         # Determine aspiration position
         if letter in ArticulationPostion.BILABIAL_CONSONANTS:
