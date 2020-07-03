@@ -1,6 +1,6 @@
 from tts.ArticulationMethod import ArticulationMethod
 from tts.ArticulationPosition import ArticulationPostion
-from tts.BottomConsonantRepresentativeSound import BottomConsonantRepresentativeSound
+from tts.BatchimRepresentativeSound import BatchimRepresentativeSound
 from tts.LetterType import LetterType
 
 NO_SOUND = ''
@@ -97,29 +97,29 @@ class Consonant:
         
         # Determine the representative sound of the letter only if the letter is a bottom letter
         if self.__letter_type == LetterType.JONGSUNG:
-            if self.__letter in BottomConsonantRepresentativeSound.GIYUK_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.GIYUK
+            if self.__letter in BatchimRepresentativeSound.GIYUK_CONSONANTS:
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.GIYUK
             
-            elif self.__letter in BottomConsonantRepresentativeSound.NIEUN_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.NIEUN
+            elif self.__letter in BatchimRepresentativeSound.NIEUN_CONSONANTS:
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.NIEUN
             
-            elif self.__letter in BottomConsonantRepresentativeSound.DIGUT_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.DIGUT
+            elif self.__letter in BatchimRepresentativeSound.DIGUT_CONSONANTS:
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.DIGUT
             
-            elif self.__letter in BottomConsonantRepresentativeSound.RIEUL_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.RIEUL
+            elif self.__letter in BatchimRepresentativeSound.RIEUL_CONSONANTS:
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.RIEUL
 
-            elif self.__letter in BottomConsonantRepresentativeSound.MIEUM_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.MIEUM
+            elif self.__letter in BatchimRepresentativeSound.MIEUM_CONSONANTS:
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.MIEUM
 
-            elif self.__letter in BottomConsonantRepresentativeSound.IEUNG_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.IEUNG
+            elif self.__letter in BatchimRepresentativeSound.IEUNG_CONSONANTS:
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.IEUNG
 
             else:
-                self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.INVALID_LETTER
+                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.INVALID_LETTER
 
         else:
-            self.__bottom_consonant_representative_sound = BottomConsonantRepresentativeSound.NOT_BOTTOM_CONSONANT
+            self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.NOT_BOTTOM_CONSONANT
 
     def to_plain(self):
         return self.__plain
