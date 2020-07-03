@@ -46,12 +46,26 @@ class Hangul:
     def split(self):
         return self.__splitted
 
+    def merge(self):
+        self.__letter = chr(
+            self.UNICODE_START +
+            self.__chosung_index * self.NUMBER_OF_JUNGSUNG * self.NUMBER_OF_JONGSUNG +
+            self.__jungsung_index * self.NUMBER_OF_JONGSUNG +
+            self.__jongsung_index
+        )
+
+    def get_letter(self):
+        return self.__letter
+
     def get_chosung(self):
         return self.__splitted[self.CHOSUNG_INDEX]
     
     def set_chosung(self, chosung):
         if len(chosung) == 1 and self.is_chosung(chosung):
             self.__splitted[self.CHOSUNG_INDEX] = chosung
+            self.__chosung_index = self.CHOSUNG.index(chosung)
+
+            self.merge()
         
         else:
             raise self.NotChosungError(f'''Letter '{chosung}' is not a Chosung character''')
@@ -62,6 +76,9 @@ class Hangul:
     def set_jungsung(self, jungsung):
         if len(jungsung) == 1 and self.is_jungsung(jungsung):
             self.__splitted[self.JUNGSUNG_INDEX] = jungsung
+            self.__jungsung_index = self.JUNGSUNG.index(jungsung)
+            
+            self.merge()
         
         else:
             raise self.NotJungsungError(f'''Letter '{jungsung}' is not a Jungsung character''')
@@ -72,6 +89,9 @@ class Hangul:
     def set_jongsung(self, jongsung):
         if len(jongsung) == 1 and self.is_jongsung(jongsung):
             self.__splitted[self.JONGSUNG_INDEX] = jongsung
+            self.__jongsung_index = self.JONGSUNG.index(jongsung)
+
+            self.merge()
         
         else:
             raise self.NotJongsungError(f'''Letter '{jongsung}' is not a Jungsung character''')
