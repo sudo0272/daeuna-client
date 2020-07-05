@@ -1,4 +1,5 @@
 from tts.Hangul import Hangul
+from tts.Batchim import Batchim
 
 class Pronunciation:
     def is_hangul(self, letter: str) -> bool:
@@ -20,6 +21,9 @@ class Pronunciation:
         # TODO: 표준 발음법 제5항 다만 1
 
         for letter_index, letter in enumerate(self.__letters):
+            batchim = Batchim(letter.get_jongsung())
+            is_letter_last_letter = letter_index + 1 == len(self.__letters)
+
             # 표준 발음법 제5항 다만 2
             # This rule is only accepted rule but being implemented for native pronunciation
             if (letter.get_jungsung() == 'ㅖ' and
@@ -51,3 +55,12 @@ class Pronunciation:
             # TODO: 표준 발음법 제7항 2 다만
 
             # TODO: 표준 발음법 제7항 2 [붙임]
+
+            # 표준 발음법 제9항
+            # 표준 발음법 제10항
+            # 표준 발음법 제11항
+            elif batchim.get_representative_sound() != '':
+                self.__letters[letter_index].set_jongsung(batchim.get_representative_sound())
+
+            # TODO: 표준 발음법 제10항 다만
+            # TODO: 표준 발음법 제11항 다만
