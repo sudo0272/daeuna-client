@@ -23,6 +23,9 @@ class Pronunciation:
             batchim = Batchim(letter.get_jongsung())
             is_letter_last_letter = letter_index + 1 == len(self.__letters)
 
+            next_letter_index = None if is_letter_last_letter else letter_index + 1
+            next_letter = None if is_letter_last_letter else self.__letters[next_letter_index]
+
             # 표준 발음법 제5항 다만 2
             # This rule is only accepted rule but being implemented for native pronunciation
             if (letter.get_jungsung() == 'ㅖ' and
@@ -59,10 +62,22 @@ class Pronunciation:
             # 표준 발음법 제10항
             # 표준 발음법 제11항
             if batchim.get_batchim() != '':
-                print(f'{self.__letters[letter_index].get_letter()} "{batchim.get_representative_sound()}"')
-                self.__letters[letter_index].set_jongsung(batchim.get_representative_sound())
+                # 표준 발음법 제10항 다만
+                if (not is_letter_last_letter and
+                    letter.get_letter() == '밟' and
+                    next_letter.get_chosung() != 'ㅇ'):
+                    self.__letters[letter_index].set_jongsung('ㅂ')
+                
+                # 표준 발음법 제10항 다만
+                elif (not is_letter_last_letter and
+                    letter.get_letter() == '넓' and
+                    (next_letter.get_letter() == '죽' or
+                     next_letter.get_letter() == '둥')):
+                    self.__letters[letter_index].set_jongsung('ㅂ')
+                
+                else:
+                    self.__letters[letter_index].set_jongsung(batchim.get_representative_sound())
 
-            # TODO: 표준 발음법 제10항 다만
             # TODO: 표준 발음법 제11항 다만
 
     def get_letters(self):
