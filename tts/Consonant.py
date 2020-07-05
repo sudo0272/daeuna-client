@@ -10,6 +10,7 @@ class Consonant:
         self.__letter = letter
         self.__letter_type = letter_type
 
+        # 표준 발음법 제8항
         # Set plain, tense and aspirated
         if self.__letter in ('ㄱ', 'ㄲ', 'ㅋ'):
             self.__plain = 'ㄱ'
