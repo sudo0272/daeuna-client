@@ -1,4 +1,6 @@
-class Batchim:
+from tts.Consonant import Consonant
+
+class Batchim(Consonant):
     GIYUK = 0
     GIYUK_CONSONANTS = ('ㄱ', 'ㄲ', 'ㅋ', 'ㄳ', 'ㄺ')
     NIEUN = 1
@@ -17,6 +19,7 @@ class Batchim:
     INVALID_LETTER = 8
 
     def __init__(self, batchim: str):
+        super.__init__()
         self.__batchim = batchim
 
         if self.__batchim in self.GIYUK_CONSONANTS:
