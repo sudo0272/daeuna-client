@@ -7,10 +7,10 @@ class Batchim(Consonant):
     RIEUL_CONSONANTS = ('ㄹ', 'ㄼ', 'ㄽ', 'ㄾ')
     MIEUM_CONSONANTS = ('ㅁ', 'ㄻ')
     BIEUP_CONSONANTS = ('ㅂ', 'ㅍ', 'ㅄ', 'ㄿ')
-    IEUNG_CONSONANTS = ('ㅇ')
+    IEUNG_CONSONANTS = ('ㅇ', )
 
     def __init__(self, batchim: str):
-        super.__init__()
+        super().__init__(batchim)
         self.__batchim = batchim
 
         if self.__batchim in self.GIYUK_CONSONANTS:

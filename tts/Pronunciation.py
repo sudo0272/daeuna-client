@@ -6,16 +6,15 @@ class Pronunciation:
         return ord('가') <= ord(letter) <= ord('힣')
 
     def __init__(self, sentence: str):
-        self.__non_hangul_letter_index = []
+        self.__non_hangul_letters = []
         self.__letters = []
-        self.__sentence = sentence
 
         for current_index, current_letter in enumerate(sentence):
             if self.is_hangul(current_letter):
                 self.__letters.append(Hangul(current_letter, current_index > 0 and sentence[current_index - 1] == ' '))
 
             else:
-                self.__non_hangul_letter_index.append(current_index)
+                self.__non_hangul_letters.append((sentence[current_index], current_index))
     
     def fluctuate(self):
         # TODO: 표준 발음법 제5항 다만 1
@@ -59,8 +58,20 @@ class Pronunciation:
             # 표준 발음법 제9항
             # 표준 발음법 제10항
             # 표준 발음법 제11항
-            elif batchim.get_representative_sound() != '':
+            if batchim.get_batchim() != '':
+                print(f'{self.__letters[letter_index].get_letter()} "{batchim.get_representative_sound()}"')
                 self.__letters[letter_index].set_jongsung(batchim.get_representative_sound())
 
             # TODO: 표준 발음법 제10항 다만
             # TODO: 표준 발음법 제11항 다만
+
+    def get_letters(self):
+        result = []
+        
+        for letter in self.__letters:
+            result.append(letter.get_letter())
+        
+        for non_hangul_letter in self.__non_hangul_letters:
+            result.insert(non_hangul_letter[1], non_hangul_letter[0])
+        
+        return ''.join(result)
