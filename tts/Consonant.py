@@ -6,9 +6,8 @@ from tts.HangulType import HangulType
 NO_SOUND = ''
 
 class Consonant:
-    def __init__(self, letter: str, letter_type: HangulType):
+    def __init__(self, letter: str):
         self.__letter = letter
-        self.__letter_type = letter_type
 
         # 표준 발음법 제8항
         # Set plain, tense and aspirated
@@ -76,7 +75,6 @@ class Consonant:
         else:
             self.__articulation_method = ArticulationMethod.INVALID_LETTER
 
-
         # Determine aspiration position
         if self.__letter in ArticulationPostion.BILABIAL_CONSONANTS:
             self.__articulation_position = ArticulationPostion.BILABIAL
@@ -95,32 +93,6 @@ class Consonant:
         
         else:
             self.__articulation_position = ArticulationPostion.INVALID_LETTER  # All consonants except Bottom Consonants in korean are evinced
-        
-        # Determine the representative sound of the letter only if the letter is a bottom letter
-        if self.__letter_type == HangulType.JONGSUNG:
-            if self.__letter in BatchimRepresentativeSound.GIYUK_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.GIYUK
-            
-            elif self.__letter in BatchimRepresentativeSound.NIEUN_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.NIEUN
-            
-            elif self.__letter in BatchimRepresentativeSound.DIGUT_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.DIGUT
-            
-            elif self.__letter in BatchimRepresentativeSound.RIEUL_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.RIEUL
-
-            elif self.__letter in BatchimRepresentativeSound.MIEUM_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.MIEUM
-
-            elif self.__letter in BatchimRepresentativeSound.IEUNG_CONSONANTS:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.IEUNG
-
-            else:
-                self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.INVALID_LETTER
-
-        else:
-            self.__bottom_consonant_representative_sound = BatchimRepresentativeSound.NOT_BOTTOM_CONSONANT
 
     def to_plain(self):
         return self.__plain
@@ -136,6 +108,3 @@ class Consonant:
     
     def get_articulation_position(self):
         return self.__articulation_position
-
-    def get_bottom_consonant_representative_sound(self):
-        return self.__bottom_consonant_representative_sound
