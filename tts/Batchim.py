@@ -16,25 +16,25 @@ class Batchim:
     NOT_BOTTOM_CONSONANT = 7
     INVALID_LETTER = 8
 
-    def __init__(self, letter: str):
-        self.__letter = letter
+    def __init__(self, batchim: str):
+        self.__batchim = batchim
 
-        if self.__letter in self.GIYUK_CONSONANTS:
+        if self.__batchim in self.GIYUK_CONSONANTS:
             self.__bottom_consonant_representative_sound = self.GIYUK
         
-        elif self.__letter in self.NIEUN_CONSONANTS:
+        elif self.__batchim in self.NIEUN_CONSONANTS:
             self.__bottom_consonant_representative_sound = self.NIEUN
         
-        elif self.__letter in self.DIGUT_CONSONANTS:
+        elif self.__batchim in self.DIGUT_CONSONANTS:
             self.__bottom_consonant_representative_sound = self.DIGUT
         
-        elif self.__letter in self.RIEUL_CONSONANTS:
+        elif self.__batchim in self.RIEUL_CONSONANTS:
             self.__bottom_consonant_representative_sound = self.RIEUL
 
-        elif self.__letter in self.MIEUM_CONSONANTS:
+        elif self.__batchim in self.MIEUM_CONSONANTS:
             self.__bottom_consonant_representative_sound = self.MIEUM
 
-        elif self.__letter in self.IEUNG_CONSONANTS:
+        elif self.__batchim in self.IEUNG_CONSONANTS:
             self.__bottom_consonant_representative_sound = self.IEUNG
 
         else:
@@ -42,3 +42,6 @@ class Batchim:
 
     def get_representative_sound(self):
         return self.__bottom_consonant_representative_sound
+
+    def get_batchim(self):
+        return self.__batchim
