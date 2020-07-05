@@ -41,3 +41,5 @@ class Pronunciation:
             # TODO: 표준 발음법 제6항 [붙임]
 
             # TODO: 표준 발음법 제6항 [붙임] 다만
+
+            # TODO: 표준 발음법 제7항 1
