@@ -1,6 +1,5 @@
 from tts.ArticulationMethod import ArticulationMethod
 from tts.ArticulationPosition import ArticulationPostion
-from tts.BatchimRepresentativeSound import BatchimRepresentativeSound
 from tts.HangulType import HangulType
 
 NO_SOUND = ''
