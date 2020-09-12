@@ -1,5 +1,6 @@
 from tts.Hangul import Hangul
 from tts.Batchim import Batchim
+import konlpy.tag
 
 class Pronunciation:
     def is_hangul(self, letter: str) -> bool:
@@ -8,6 +9,8 @@ class Pronunciation:
     def __init__(self, sentence: str):
         self.__non_hangul_letters = []
         self.__letters = []
+        self.__kkma = konlpy.tag.Kkma()
+        self.__parsed = self.__kkma.pos(sentence)
 
         for current_index, current_letter in enumerate(sentence):
             if self.is_hangul(current_letter):
