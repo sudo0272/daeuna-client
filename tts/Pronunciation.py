@@ -9,8 +9,8 @@ class Pronunciation:
     def __init__(self, sentence: str):
         self.__non_hangul_letters = []
         self.__letters = []
-        self.__kkma = konlpy.tag.Kkma()
-        self.__parsed = self.__kkma.pos(sentence)
+        self.__mecab = konlpy.tag.Mecab()
+        self.__parsed = self.__mecab.pos(sentence)
 
         for current_index, current_letter in enumerate(sentence):
             if self.is_hangul(current_letter):
