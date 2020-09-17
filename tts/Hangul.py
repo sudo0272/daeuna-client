@@ -100,3 +100,4 @@ class Hangul:
 
     def is_first_articulation(self):
         return self.__is_first_articulation
+
