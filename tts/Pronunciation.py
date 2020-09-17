@@ -1,10 +1,3 @@
-from Hangul import Hangul
-from HangulNames import HangulNames
-import langdetect
-from ISO_639_1_ISO_637_2_T_Map import ISO_639_1_ISO_637_2_T_Map
-from ctypes import *
-import hanja
-from NumberNames import NumberNames
 from SentenceParser import SentenceParser
 from LetterConverter import LetterConverter
 
@@ -29,10 +22,4 @@ class Pronunciation:
     def fluctuate(self):
         for i in self.__converted_sentence:
             print(i[0].get_letter(), i[0].is_first_articulation(), i[1])
-            # print(i[0].get_letter(), end='')
-
-        print()
-
-t = Pronunciation(input())
-t.fluctuate()
 
